@@ -11,7 +11,7 @@ public class ProductDescriptionPage extends PageObject {
     @FindBy(css = ".swatch-label [alt=\"Indigo\"]")
     WebElementFacade selectColor;
 
-    @FindBy(css="#swatch81 .swatch-label")
+    @FindBy(css="#swatch80 .swatch-label")
     WebElementFacade selectSize;
 
     @FindBy(id="qty")

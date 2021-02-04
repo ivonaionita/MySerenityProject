@@ -25,7 +25,7 @@ public class CheckoutTest {
     @Steps
     private CartSteps cartSteps;
     @Steps
-    private BillingInfoSteps billingInfoSteps;
+    private CheckoutSteps checkoutSteps;
 
     @Test
 
@@ -37,9 +37,8 @@ public class CheckoutTest {
 
      @Test
         public void completeBillingInfo(){
-            loginSteps.loginUser("ivona930@gmail.com","123456");
-            cartSteps.proceedToCheckout();
-            billingInfoSteps.continueToCheckout();
+            proceedToCheckOut();
+            checkoutSteps.continueToCheckout();
         }
 
 

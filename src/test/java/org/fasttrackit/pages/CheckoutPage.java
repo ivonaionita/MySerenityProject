@@ -8,7 +8,7 @@ import org.yecht.Data;
 
 import java.awt.*;
 
-public class BillingInfoPage extends PageObject {
+public class CheckoutPage extends PageObject {
     @FindBy(id="billing:street1")
     WebElementFacade addressField;
     @FindBy(id="billing:city")
