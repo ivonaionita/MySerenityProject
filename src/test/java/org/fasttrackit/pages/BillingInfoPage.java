@@ -8,7 +8,7 @@ import org.yecht.Data;
 
 import java.awt.*;
 
-public class CheckoutPage extends PageObject {
+public class BillingInfoPage extends PageObject {
     @FindBy(id="billing:street1")
     WebElementFacade addressField;
     @FindBy(id="billing:city")
@@ -33,8 +33,8 @@ public class CheckoutPage extends PageObject {
     public void completePostalCodeField(String postalCode){
         typeInto(postalCodeField,postalCode);
     }
-    public void completeCountryField(String country){
-        typeInto(countryField,country);
+    public void completeCountryField(){
+        selectFromDropdown(countryField,"Romania");
     }
     public void completeTelephoneNo(String number){
         typeInto(telephoneField,number);

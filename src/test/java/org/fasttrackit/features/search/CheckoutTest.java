@@ -4,10 +4,7 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import org.fasttrackit.pages.HomePage;
-import org.fasttrackit.steps.serenity.CartSteps;
-import org.fasttrackit.steps.serenity.LoginSteps;
-import org.fasttrackit.steps.serenity.ProductDescriptionSteps;
-import org.fasttrackit.steps.serenity.ProductSteps;
+import org.fasttrackit.steps.serenity.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
@@ -27,13 +24,25 @@ public class CheckoutTest {
     private ProductDescriptionSteps productDescriptionSteps;
     @Steps
     private CartSteps cartSteps;
+    @Steps
+    private BillingInfoSteps billingInfoSteps;
 
     @Test
-    public void proceedToCheckOut(){
-        loginSteps.loginUser("ivona930@gmail.com","123456");
+
+    public void proceedToCheckOut() {
+        loginSteps.loginUser("ivona930@gmail.com", "123456");
         cartSteps.proceedToCheckout();
+
+    }
+
+     @Test
+        public void completeBillingInfo(){
+            loginSteps.loginUser("ivona930@gmail.com","123456");
+            cartSteps.proceedToCheckout();
+            billingInfoSteps.continueToCheckout();
+        }
 
 
     }
 
-}
+

@@ -14,7 +14,8 @@ public class ProductDescriptionSteps {
 
     @Step
     public void selectProductColor(){
-         homePage.open();
+
+        homePage.open();
         homePage.clickProductCategory();
         productsPage.selectProduct();
         productDescriptionPage.selectProductColor();
