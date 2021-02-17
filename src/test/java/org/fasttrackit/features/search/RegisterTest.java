@@ -17,5 +17,7 @@ public class RegisterTest extends BaseTest {
         registerSteps.setRegPasswordField("@1234567890As");
         registerSteps.proceedToRegister();
         registerSteps.verifyRegisterMessage();
+
+
     }
 }
