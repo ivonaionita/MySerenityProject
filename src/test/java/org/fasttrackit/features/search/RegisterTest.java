@@ -10,7 +10,7 @@ public class RegisterTest extends BaseTest {
     private RegisterSteps registerSteps;
 
     @Test
-    public void registerWithValidCredentials(){
+    public void registerWithValidCredentials() {
 
         registerSteps.navigateToRegister();
         registerSteps.setRegEmailField("bcdef@yahoo.com");

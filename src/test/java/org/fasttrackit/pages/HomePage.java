@@ -11,7 +11,7 @@ public class HomePage extends PageObject {
    @FindBy (css = ".login-woocommerce")
     WebElementFacade loginLink;
 
-   public void clickLoginLink(){
+   public void clickLoginLink() {
        clickOn(loginLink);
    }
 

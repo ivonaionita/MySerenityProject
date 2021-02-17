@@ -17,7 +17,7 @@ public class LoginTest extends BaseTest {
     private LoginSteps loginSteps;
 
     @Test
-    public void loginWithValidCredentials(){
+    public void loginWithValidCredentials() {
         loginSteps.navigateToLogin();
         loginSteps.setLgnUsernameField(EnvironmentConstants.USER_EMAIL);
         loginSteps.setLgnPasswordField(EnvironmentConstants.USER_PASS);
