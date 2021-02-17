@@ -4,26 +4,26 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import org.fasttrackit.steps.serenity.LoginSteps;
+import org.fasttrackit.utils.BaseTest;
+import org.fasttrackit.utils.EnvironmentConstants;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
-@RunWith(SerenityRunner.class)
-public class LoginTest {
-    @Managed
-    private WebDriver webDriver;
+
+public class LoginTest extends BaseTest {
+
     @Steps
     private LoginSteps loginSteps;
 
     @Test
     public void loginWithValidCredentials(){
         loginSteps.navigateToLogin();
-        loginSteps.setEmail("ivona930@gmail.com");
-        loginSteps.setPass("123456");
-        loginSteps.clickLoginButton();
+        loginSteps.setLgnUsernameField(EnvironmentConstants.USER_EMAIL);
+        loginSteps.setLgnPasswordField(EnvironmentConstants.USER_PASS);
+        loginSteps.proceedToLogin();
 
-     //   loginSteps.loginUser("ivona930@gmail.com","123456");
-
+        //  loginSteps.loginWithValidCredentials(EnvironmentConstants.USER_EMAIL,EnvironmentConstants.USER_PASS);
     }
 
 
