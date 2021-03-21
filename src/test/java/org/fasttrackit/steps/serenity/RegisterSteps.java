@@ -44,5 +44,14 @@ public class RegisterSteps {
         myAccountPage.verifyHelloMessage();
     }
 
+    @Step
+    public void verifyPassStrength(){
+        loginPage.passwordStrengthMessage();
+    }
+
+   /* @Step
+    public void verifyRegisteredEmail(){
+        loginPage.alreadyExistingEmailMessage();
+    }*/
 
 }

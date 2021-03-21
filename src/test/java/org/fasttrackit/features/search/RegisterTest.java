@@ -11,13 +11,25 @@ public class RegisterTest extends BaseTest {
 
     @Test
     public void registerWithValidCredentials() {
-
         registerSteps.navigateToRegister();
-        registerSteps.setRegEmailField("bcdef@yahoo.com");
-        registerSteps.setRegPasswordField("@1234567890As");
+        registerSteps.setRegEmailField("testemail@yahoo.com");
+        registerSteps.setRegPasswordField("Parolaestenoua@1234567");
         registerSteps.proceedToRegister();
         registerSteps.verifyRegisterMessage();
 
+   }
+
+    @Test
+    public void registerWithWeakPassword(){
+        registerSteps.navigateToRegister();
+        registerSteps.setRegEmailField("11@yahoo.com");
+        registerSteps.setRegPasswordField("Parola");
+        registerSteps.verifyPassStrength();
 
     }
+
+
+
+
+
 }

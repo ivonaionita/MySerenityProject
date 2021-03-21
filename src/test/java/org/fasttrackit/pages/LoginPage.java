@@ -27,6 +27,17 @@ public class LoginPage extends PageObject {
     @FindBy (css = ".form-row [name=\"register\"]")
     private WebElementFacade  registerButton;
 
+    @FindBy (css=".woocommerce-error ")
+    private WebElementFacade wrongPassMessage;
+
+    @FindBy (css=".woocommerce-error li")
+    private WebElementFacade invalidEmailMessage;
+
+    @FindBy(css=".woocommerce-password-strength")
+    private WebElementFacade passStrengthMessage;
+
+    @FindBy (css=".lost_password a")
+    private WebElementFacade lostPasswordLink;
 
     public void completeLgnEmailField(String email){
 
@@ -55,6 +66,24 @@ public class LoginPage extends PageObject {
     public void clickRegisterButton(){
         clickOn(registerButton);
     }
+
+    public void invalidPassMessage(String email){
+        wrongPassMessage.shouldContainText("The password you entered for the email address "+email+" is incorrect");
+    }
+
+    public void invalidEmailError(){
+        invalidEmailMessage.shouldContainText("Invalid email address.");
+    }
+
+    public void passwordStrengthMessage(){
+        passStrengthMessage.isDisplayed();
+    }
+
+    public void clickLostPasswordLink(){
+        clickOn(lostPasswordLink);
+    }
+
+
 
 
 }
