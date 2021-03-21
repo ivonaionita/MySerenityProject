@@ -1,6 +1,7 @@
 package org.fasttrackit.features.search;
 
 import net.thucydides.core.annotations.Steps;
+import org.fasttrackit.steps.serenity.*;
 import org.fasttrackit.steps.serenity.CartSteps;
 import org.fasttrackit.steps.serenity.CheckoutSteps;
 import org.fasttrackit.steps.serenity.LoginSteps;
