@@ -27,11 +27,14 @@ public class ShopPage extends PageObject {
     @FindBy (css=".entry-title")
     private WebElementFacade shopPageTitle;
 
-   /* @FindBy (css=".orderby option:last-child")
+    @FindBy (css=".orderby option:last-child")
     private WebElementFacade sortingOption;
 
     @FindBy (css = ".products")
-    private List<WebElementFacade> productsList;*/
+    private List<WebElementFacade> productsList;
+
+    @FindBy(css=".wc-products li .onsale")
+    private List<WebElementFacade> productsWithSaleTag;
 
     public void selectFirstProductDisplayed(){
         clickOn(firstProductDisplayed);
@@ -45,16 +48,23 @@ public class ShopPage extends PageObject {
         clickOn(product);
     }
 
-  /*  public void clckOnSortingBar(){
+   public void clckOnSortingBar(){
         clickOn(sortingBar);
     }
 
     public void clickSortingOption(){
         clickOn(sortingOption);
-    } */
+    }
 
     public void verifyShopPageTitle(){
         shopPageTitle.shouldContainText("SHOP");
+    }
+
+    public boolean verifyProductsWithSaleTag(){
+        for(WebElementFacade webElementFacade:productsWithSaleTag){
+            if(webElementFacade.containsElements(By.cssSelector(".price-cart del")))
+                return true;
+        }return false;
     }
 
 

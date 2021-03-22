@@ -50,4 +50,30 @@ public class CartTest extends BaseTest {
         shopSteps.isShopPageTitleDisplayed();
     }
 
+    @Test
+    public void changeQuantityFromCart(){
+        shopSteps.navigateToShopPage();
+        shopSteps.addToCartFirstProduct();
+        shopSteps.selectViewCartButton();
+        cartSteps.clearQuantityField();
+        cartSteps.completeValueInQuantityField("3");
+        cartSteps.clickOnUpdateCart();
+        cartSteps.verifyUpdateCartMessage();
+
+    }
+
+    @Test
+    public void addInexistentCuponeCode(){
+        loginSteps.navigateToLogin();
+        loginSteps.loginWithValidCredentials(EnvironmentConstants.USER_EMAIL,EnvironmentConstants.USER_PASS);
+        shopSteps.openShopPage();
+        shopSteps.addProductToShoppingCart();
+        shopSteps.selectViewCartButton();
+        cartSteps.completeCuponeField("1234s");
+        cartSteps.clickOnApplyCoupon();
+        cartSteps.verifyCoupon("1234s");
+
+    }
+
+
 }

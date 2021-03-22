@@ -34,11 +34,9 @@ public class ShopTest extends BaseTest {
         cartSteps.isProductInCart("Album");
     }
 
-   /* @Test
-    public void sortProductsByPrice(){
+    @Test
+    public void checkSalesProducts(){
         shopSteps.navigateToShopPage();
-        shopSteps.openSortingList();
-        shopSteps.selectSortingOption();
-
-    } */
+        shopSteps.checkSaleProducts();
+    }
 }

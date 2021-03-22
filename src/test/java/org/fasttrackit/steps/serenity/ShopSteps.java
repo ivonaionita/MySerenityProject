@@ -95,6 +95,11 @@ public class ShopSteps {
         shopPage.verifyShopPageTitle();
     }
 
+    @Step
+    public void checkSaleProducts(){
+        shopPage.verifyProductsWithSaleTag();
+    }
+
 
 
 

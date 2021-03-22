@@ -19,6 +19,18 @@ public class CartPage extends PageObject {
     private WebElementFacade emptyCartContentMessage;
     @FindBy (css=".return-to-shop a")
     private WebElementFacade returnToShopButton;
+    @FindBy(css=".quantity .input-text")
+    private WebElementFacade quantityField;
+    @FindBy(css="button[name=\"update_cart\"]")
+    private WebElementFacade updateCartButton;
+    @FindBy(css=".woocommerce-message[role=\"alert\"]")
+    private WebElementFacade cartUpdateMessage;
+    @FindBy(css="#coupon_code")
+    private WebElementFacade couponField;
+    @FindBy(css=".coupon input:last-child")
+    private WebElementFacade applyCoupon;
+    @FindBy(css=".woocommerce-error[role=\"alert\"]")
+    private WebElementFacade inexistentCouponAlert;
 
 
 
@@ -45,6 +57,34 @@ public class CartPage extends PageObject {
 
     public void clickReturnToShopButton(){
         clickOn(returnToShopButton);
+    }
+
+    public void eraseQuantityField(){
+        typeInto(quantityField,"0");
+    }
+
+    public void typeValueInQuantityField(String value){
+        typeInto(quantityField,value);
+    }
+
+    public void clickUpdateCartButton(){
+        clickOn(updateCartButton);
+    }
+
+    public void checkUpdateCartMessage(){
+        cartUpdateMessage.shouldContainText("Cart updated.");
+    }
+
+    public void typeCouponCode(String coupon){
+        typeInto(couponField,coupon);
+    }
+
+    public void clickApplyCoupon(){
+        clickOn(applyCoupon);
+    }
+
+    public void verifyInexistentCouponAlert(String coupon){
+        inexistentCouponAlert.shouldContainText("Coupon  "+coupon+" does not exist!");
     }
 
 }

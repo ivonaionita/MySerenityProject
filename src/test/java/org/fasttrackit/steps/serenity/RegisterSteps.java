@@ -49,9 +49,6 @@ public class RegisterSteps {
         loginPage.passwordStrengthMessage();
     }
 
-    @Step
-    public void verifyRegisteredEmail(){
-        loginPage.alreadyExistingEmailMessage();
-    }
+
 
 }

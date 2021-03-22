@@ -39,15 +39,19 @@ public class PlaceOrderPage extends PageObject {
     public void completeBillingCityField(String city){
         typeInto(billingCityField,city);
     }
+
     public void completeBillingPCField(String  postCode){
         typeInto(billingPCField,postCode);
     }
+
     public void completeBilingPhoneField(String phone){
         typeInto(billingPhoneField,phone);
     }
+
     public void completeBillingEmailField(String email){
         typeInto(billingEmailField,email);
     }
+
     public void clickPlaceOrder(){
         clickOn(placeOrderButton);
     }

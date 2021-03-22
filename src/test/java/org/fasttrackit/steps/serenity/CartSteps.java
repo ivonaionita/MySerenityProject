@@ -45,5 +45,40 @@ public class CartSteps {
         cartPage.clickReturnToShopButton();
     }
 
+    @Step
+    public void clearQuantityField(){
+        cartPage.eraseQuantityField();
+    }
+
+    @Step
+    public void completeValueInQuantityField(String qty){
+        cartPage.typeValueInQuantityField(qty);
+    }
+
+    @Step
+    public void clickOnUpdateCart(){
+        cartPage.clickUpdateCartButton();
+    }
+
+    @Step
+    public void verifyUpdateCartMessage(){
+        cartPage.checkUpdateCartMessage();
+    }
+
+    @Step
+    public void completeCuponeField(String coupon){
+        cartPage.typeCouponCode(coupon);
+    }
+
+    @Step
+    public void clickOnApplyCoupon(){
+        cartPage.clickApplyCoupon();
+    }
+
+    @Step
+    public void verifyCoupon(String coupon){
+        cartPage.verifyInexistentCouponAlert(coupon);
+    }
+
 
 }
