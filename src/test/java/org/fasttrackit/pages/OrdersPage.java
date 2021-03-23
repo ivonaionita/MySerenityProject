@@ -15,6 +15,17 @@ public class OrdersPage extends PageObject {
     @FindBy (css=".woocommerce-MyAccount-orders")
     private List<WebElementFacade> ordersTable;
 
+    @FindBy(css=".woocommerce-orders-table td:nth-child(5) a")
+    private WebElementFacade viewButton;
+
+    @FindBy(css=".woocommerce-MyAccount-content td:first-child a")
+    private WebElementFacade orderNumber;
+
+    @FindBy(css=".woocommerce-MyAccount-content td:nth-child(2)")
+    private WebElementFacade orderDate;
+
+
+
     public void processingOrderStatus(){
         orderStatus.shouldContainText("Processing");
     }
@@ -24,6 +35,18 @@ public class OrdersPage extends PageObject {
             if (webElementFacade.findElement(By.cssSelector(".woocommerce-MyAccount-orders th")).isDisplayed())
              return true;
         }return false;
+    }
+
+    public void clickViewButton(){
+        clickOn(viewButton);
+    }
+
+    public void orderNumberMatches(){
+        orderNumber.getText().equals(find(By.cssSelector(".order-number")).getText());
+    }
+
+    public void orderDateMatches(){
+        orderDate.getText().equals(find(By.cssSelector(".order-date")).getText());
     }
 
 

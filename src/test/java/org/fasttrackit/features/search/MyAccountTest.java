@@ -78,7 +78,7 @@ public class MyAccountTest extends BaseTest {
     @Test
     public void logoutFromMyAccountSection(){
         loginSteps.navigateToLogin();
-        loginSteps.loginWithValidCredentials("ivona930@gmail.com","@1234567890Ab");
+        loginSteps.loginWithValidCredentials(EnvironmentConstants.USER_EMAIL,EnvironmentConstants.USER_PASS);
         myAccountSteps.clickOnLogoutButtonMA();
         loginSteps.verifyLoginPage();
     }
@@ -86,9 +86,19 @@ public class MyAccountTest extends BaseTest {
     @Test
     public void verifyRecentOrdersFromDashbord(){
         loginSteps.navigateToLogin();
-        loginSteps.loginWithValidCredentials("ivona930@gmail.com","@1234567890Ab");
+        loginSteps.loginWithValidCredentials(EnvironmentConstants.USER_EMAIL,EnvironmentConstants.USER_PASS);
         myAccountSteps.clickOnRecentOrdersLink();
         myAccountSteps.verifyOrdersTable();
+    }
+
+    @Test
+    public void verifySpecificOrderDetails(){
+        loginSteps.navigateToLogin();
+        loginSteps.loginWithValidCredentials(EnvironmentConstants.USER_EMAIL,EnvironmentConstants.USER_PASS);
+        myAccountSteps.clickOnOrdersButton();
+        myAccountSteps.clickOnViewButtonOrders();
+        myAccountSteps.verifyOrderNumber();
+        myAccountSteps.verifyOrderDate();
     }
 
 }

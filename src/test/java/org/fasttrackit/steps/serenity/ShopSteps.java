@@ -69,22 +69,6 @@ public class ShopSteps {
         addProductToCart();
     }
 
-  /*  @Step
-    public void openSortingList(){
-        shopPage.clckOnSortingBar();
-    }
-
-    @Step
-    public void selectSortingOption(){
-        shopPage.clickSortingOption();
-    }
-
-    @Step
-    public void sortProducts(){
-        openSortingList();
-        selectSortingOption();
-    } */
-
     @Step
     public void clickMyAccount(){
         homePage.clickMyAccountButton();

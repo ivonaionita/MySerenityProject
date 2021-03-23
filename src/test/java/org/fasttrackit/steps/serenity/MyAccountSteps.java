@@ -14,6 +14,7 @@ public class MyAccountSteps {
     private HomePage homePage;
     private OrdersPage ordersPage;
 
+
     @Step
     public void clickOnMyAccountButton(){
         homePage.clickMyAccountButton();
@@ -182,5 +183,22 @@ public class MyAccountSteps {
     public void verifyOrdersTable(){
         ordersPage.ordersTableIsDisplayed();
     }
+
+    @Step
+    public void clickOnViewButtonOrders(){
+        ordersPage.clickViewButton();
+    }
+
+    @Step
+    public void verifyOrderNumber(){
+       ordersPage.orderNumberMatches();
+    }
+
+    @Step
+    public void verifyOrderDate(){
+        ordersPage.orderDateMatches();
+    }
+
+
 
 }

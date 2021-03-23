@@ -2,8 +2,11 @@ package org.fasttrackit.pages;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
+
+import java.util.List;
 
 public class BillingAddressPage extends PageObject {
 
@@ -27,6 +30,9 @@ public class BillingAddressPage extends PageObject {
 
     @FindBy (css=".button")
     private WebElementFacade billingAddressSaveButton;
+
+    @FindBy(css=".woocommerce-checkout-review-order-table")
+    private List<WebElementFacade> reviewOrderTable;
 
     public void setBillingAddressFirstNameField(String firstName){
         typeInto(billingAddressFirstNameField,firstName);
@@ -54,6 +60,13 @@ public class BillingAddressPage extends PageObject {
 
     public void clickBillingAddressSaveButton(){
         clickOn(billingAddressSaveButton);
+    }
+
+    public boolean reviewOrderTableisDisplayed(){
+        for(WebElementFacade webElementFacade:reviewOrderTable){
+            if (webElementFacade.containsElements(By.cssSelector(".shop_table")))
+                return true;
+        }return false;
     }
 
 

@@ -28,7 +28,7 @@ public class CartTest extends BaseTest {
     }
 
     @Test
-    public void productsStayInCartAfterLogout(){
+    public void verifyIfroductsStayInCartAfterLogout(){
         loginSteps.navigateToLogin();
         loginSteps.loginWithValidCredentials(EnvironmentConstants.USER_EMAIL,EnvironmentConstants.USER_PASS);
         shopSteps.openShopPage();
@@ -72,6 +72,16 @@ public class CartTest extends BaseTest {
         cartSteps.completeCuponeField("1234s");
         cartSteps.clickOnApplyCoupon();
         cartSteps.verifyCoupon("1234s");
+
+    }
+
+    @Test
+    public void verifyCartProductLinkOpensProductPage(){
+        shopSteps.navigateToFirstProductPage();
+        shopSteps.addProductToCart();
+        shopSteps.selectViewCartButton();
+        cartSteps.clickOnProductLinkInCart();
+        cartSteps.checkProductLink();
 
     }
 

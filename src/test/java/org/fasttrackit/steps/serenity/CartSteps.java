@@ -1,13 +1,16 @@
 package org.fasttrackit.steps.serenity;
 
+import io.cucumber.java.hi.तथा;
 import net.thucydides.core.annotations.Step;
 import org.fasttrackit.pages.CartPage;
 import org.fasttrackit.pages.HomePage;
+import org.fasttrackit.pages.ProductPage;
 
 public class CartSteps {
 
     private CartPage cartPage;
     private HomePage homePage;
+    private ProductPage productPage;
 
     @Step
     public void isProductInCart(String product){
@@ -80,5 +83,19 @@ public class CartSteps {
         cartPage.verifyInexistentCouponAlert(coupon);
     }
 
+    @Step
+    public void isCartProductListDisplayed(){
+        cartPage.cartProductsListDisplayed();
+    }
+
+    @Step
+    public void clickOnProductLinkInCart(){
+        cartPage.clickProductLinkInCart();
+    }
+
+    @Step
+    public void checkProductLink(){
+       productPage.verifyProductTitlePageWithProductLinkInCart();
+    }
 
 }

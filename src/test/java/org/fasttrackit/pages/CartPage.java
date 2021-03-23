@@ -5,6 +5,8 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class CartPage extends PageObject {
 
     @FindBy (css = ".woocommerce td:nth-child(3)")
@@ -31,8 +33,11 @@ public class CartPage extends PageObject {
     private WebElementFacade applyCoupon;
     @FindBy(css=".woocommerce-error[role=\"alert\"]")
     private WebElementFacade inexistentCouponAlert;
+    @FindBy(css=".shop_table")
+    private List<WebElementFacade> cartProductsList;
 
-
+    @FindBy(css=".cart_item td:nth-child(3) a")
+    private WebElementFacade productLinkInCart;
 
 
     public void isProductInCart(String product){
@@ -84,7 +89,19 @@ public class CartPage extends PageObject {
     }
 
     public void verifyInexistentCouponAlert(String coupon){
-        inexistentCouponAlert.shouldContainText("Coupon  "+coupon+" does not exist!");
+        inexistentCouponAlert.shouldContainText("Coupon \""+coupon+"\" does not exist!");
     }
+
+    public boolean cartProductsListDisplayed(){
+        for(WebElementFacade webElementFacade:cartProductsList){
+            if (webElementFacade.isDisplayed())
+                return true;
+        }return false;
+    }
+
+    public void clickProductLinkInCart(){
+        clickOn(productLinkInCart);
+    }
+
 
 }

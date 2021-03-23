@@ -31,13 +31,16 @@ public class LoginPage extends PageObject {
     private WebElementFacade wrongPassMessage;
 
     @FindBy (css=".woocommerce-error li")
-    private WebElementFacade invalidEmailMessage;
+    private WebElementFacade alreadyExistingEmailMessage;
 
     @FindBy(css=".woocommerce-password-strength")
     private WebElementFacade passStrengthMessage;
 
     @FindBy (css=".lost_password a")
     private WebElementFacade lostPasswordLink;
+
+    @FindBy(css=".woocommerce-error li ")
+    private WebElementFacade invalidEmailMessage;
 
     public void completeLgnEmailField(String email){
 
@@ -71,8 +74,12 @@ public class LoginPage extends PageObject {
         wrongPassMessage.shouldContainText("The password you entered for the email address "+email+" is incorrect");
     }
 
+    public void alreadyExistingEmailError(){
+       alreadyExistingEmailMessage.shouldContainText("Error: An account is already registered with your email address. Please log in.");
+    }
+
     public void invalidEmailError(){
-        invalidEmailMessage.shouldContainText("Invalid email address.");
+        invalidEmailMessage.shouldContainText("Invalid email address");
     }
 
     public void passwordStrengthMessage(){

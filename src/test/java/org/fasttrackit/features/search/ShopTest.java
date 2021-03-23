@@ -10,7 +10,7 @@ import org.junit.Test;
 
 public class ShopTest extends BaseTest {
    @Steps
-    private LoginSteps loginSteps;
+   private LoginSteps loginSteps;
    @Steps
    private ShopSteps shopSteps;
    @Steps
@@ -22,8 +22,6 @@ public class ShopTest extends BaseTest {
         shopSteps.navigateToShopPage();
         shopSteps.openFirstProductDisplayed();
         shopSteps.isProductDescribed();
-
-        // shopSteps.navigateToFirstProductPage();}
     }
 
     @Test

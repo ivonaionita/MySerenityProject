@@ -19,6 +19,8 @@ public class CheckoutTest extends BaseTest {
     private MyAccountSteps myAccountSteps;
     @Steps
     private CartSteps cartSteps;
+    @Steps
+    private ShopSteps shopSteps;
 
     @Test
     public void checkoutWithEmptyCartAsUser(){
@@ -27,5 +29,16 @@ public class CheckoutTest extends BaseTest {
         checkoutSteps.clickonCheckoutButton();
         cartSteps.verifyEmptyContetMessage();
     }
+
+    @Test
+   public void reviewOrderList(){
+        loginSteps.navigateToLogin();
+        loginSteps.loginWithValidCredentials(EnvironmentConstants.USER_EMAIL,EnvironmentConstants.USER_PASS);
+        shopSteps.addProductToShoppingCart();
+        shopSteps.selectViewCartButton();
+        cartSteps.proceedToCheckout();
+        checkoutSteps.checkReviewOrderTable();
+    }
+
 
 }
